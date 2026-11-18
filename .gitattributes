@@ -1,0 +1,11 @@
+# Preserve supplied media byte-for-byte; keep source portable across Windows/Linux.
+*.js text eol=lf
+*.mjs text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.png binary
+*.gif binary
+*.mp3 binary
+*.mp4 binary

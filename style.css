@@ -1,0 +1,117 @@
+* { box-sizing: border-box; }
+.teaching-video { position: absolute; left: 26.9%; top: 22.8%; width: 46.2%; height: 49.6%; object-fit: contain; background: #000; border-radius: 4px; }
+html, body { margin: 0; min-height: 100%; }
+body { background: #173d29; color: #49260d; font-family: 'Trebuchet MS', sans-serif; }
+button, input { font: inherit; }
+button { cursor: pointer; border: 0; }
+button:focus-visible, input:focus-visible, [tabindex]:focus-visible { outline: 4px solid #fff; box-shadow: 0 0 0 7px #2365ab; }
+button:disabled { cursor: default; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+#app { min-height: 100svh; display: grid; place-items: center; }
+.stage { position: relative; width: min(100%, 1600px); height: min(100svh, 900px); min-height: 440px; overflow: hidden; background: #8bd1e4 url('Homepage/background.png') center / cover; }
+.asset { display: inline-block; position: relative; overflow: hidden; flex-shrink: 0; }
+.asset img { position: absolute; max-width: none; pointer-events: none; user-select: none; }
+.graphic-button { background: transparent; padding: 0; display: inline-flex; align-items: center; justify-content: center; transition: transform .15s; }
+.graphic-button:hover { transform: scale(1.06); }
+.panel { position: absolute; width: min(90%, 750px); left: 50%; top: 50%; transform: translate(-50%,-50%); }
+.panel-art { display: block; width: 100%; }
+.login-form { position: absolute; inset: 0; }
+.start-hit { position: absolute; left: 34%; top: 73%; width: 30%; height: 16%; background: transparent; border-radius: 30px; }
+.hud { position: absolute; z-index: 5; top: 20px; left: 20px; right: 20px; display: flex; align-items: start; justify-content: space-between; gap: 10px; pointer-events: none; }
+.hud > * { pointer-events: auto; }
+.profile { position: relative; width: clamp(160px, 25vw, 290px); background: transparent; padding: 0; }
+.profile .asset { width: 100%; }
+.profile-name { position: absolute; left: 29%; right: 4%; top: 21%; bottom: 15%; display: flex; align-items: center; background: #fbe3b9; font-size: clamp(16px, 2vw, 25px); text-align: left; padding-left: 7px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.tools { display: flex; gap: 12px; }
+.tools .asset { width: clamp(48px, 5vw, 65px); }
+.world { position: absolute; inset: 0; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; scroll-behavior: smooth; touch-action: pan-x; }
+.world::-webkit-scrollbar { display: none; }
+.landscape { position: relative; width: max(100%, 1600px); height: 100%; background: url('Homepage/background with road and home.png') center / 100% 100% no-repeat, url('Homepage/background.png') center / 100% 100% no-repeat; }
+.sign { position: absolute; bottom: 16%; width: 105px; }
+.sign .asset { width: 100%; }
+.sign.completed::after { content: 'âœ“'; position: absolute; right: -8px; top: -15px; background: #4f8c25; color: white; border: 3px solid #fff1c4; border-radius: 50%; width: 35px; height: 35px; font-size: 25px; }
+.explorer { position: absolute; bottom: 18%; width: 95px; z-index: 2; transition: left 1.2s linear; pointer-events: none; }
+.explorer.walking { animation: step .24s infinite alternate; }
+@keyframes step { to { transform: translateY(-7px) rotate(2deg); } }
+.map-bottom { position: absolute; bottom: 18px; left: 20px; right: 20px; z-index: 5; display: flex; justify-content: space-between; align-items: center; pointer-events: none; }
+.map-bottom > * { pointer-events: auto; }
+.arrows { display: flex; gap: 12px; }
+.wood-button { min-width: 55px; min-height: 48px; background: #b77739; color: #fff7d7; border: 3px solid #653b1d; border-radius: 15px; padding: 8px 20px; font-weight: bold; font-size: 20px; box-shadow: 0 4px #533414; }
+.shade { position: absolute; inset: 0; z-index: 10; background: #13331b88; display: grid; place-items: center; padding: 24px; }
+.toast { position: absolute; z-index: 8; left: 50%; top: 24%; transform: translateX(-50%); padding: 15px 24px; background: #fff0ce; border: 4px solid #b77d3a; border-radius: 20px; text-align: center; font-weight: bold; max-width: 90%; }
+@media (max-width: 600px) { .stage { min-height: 100svh; } .hud { top: 12px; left: 12px; right: 12px; } .tools { gap: 8px; } .panel { width: 98%; } .map-bottom { left: 12px; right: 12px; } .progress { font-size: 14px; padding: 8px 10px; } }
+@media (prefers-reduced-motion: reduce) { *, .world { animation: none !important; transition: none !important; scroll-behavior: auto; } }
+.stage { background-size: cover; }
+body { overflow: hidden; }
+.stage { height: 100dvh; max-height: 900px; min-height: 0; background-position: center; }
+.landscape { width: max(100%, 1920px); background: none; }
+.world { scroll-behavior: auto; }
+.road { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.explorer { bottom: 18%; transition: none; }
+.sign { bottom: auto; top: 76%; width: 110px; height: 78px; align-items: start; }
+.sign .asset { height: 100%; aspect-ratio: auto !important; }
+.map-bottom { justify-content: flex-end; }
+.panel, .info-panel { width: min(94%, 750px, calc(90dvh * 1.535)); }
+.panel-art { display: block; width: 100%; }
+.gender-choice { position: absolute; transition: transform .18s, filter .18s; }
+.gender-choice .asset { width: 100%; height: 100%; }
+.gender-choice[aria-pressed="true"] { transform: scale(1.08); filter: drop-shadow(0 0 5px #fff2a1) drop-shadow(0 0 3px #ffda35); z-index: 1; }
+.name-field { position: absolute; }
+.name-field > .asset { display: block; width: 100%; height: 100%; }
+.name-field input { position: absolute; left: 5%; top: 10%; width: 77%; height: 78%; padding: 0; border: 0; background: transparent; font-weight: bold; font-size: clamp(14px, 2.1vw, 25px); color: #573014; }
+.name-field input:focus-visible { outline: 2px solid #795629; box-shadow: none; }
+.name-error { position: absolute; }
+.name-error[hidden] { display: none; }
+.start-hit, .continue-hit { position: absolute; left: 34%; top: 75%; width: 29%; height: 15%; background: transparent; border-radius: 30px; }
+.info-panel { position: relative; }
+.info-portrait { position: absolute; }
+.continue-hit { left: 32%; top: 77%; width: 32%; height: 15%; }
+@media (max-width: 600px) { .stage { min-height: 0; } .panel { width: min(96%, calc(90dvh * 1.535)); } .info-panel { width: min(100%, calc(90dvh * 1.535)); } .shade { padding: 10px; } .name-field input { font-size: clamp(13px, 3vw, 20px); } }
+.stage { background-size: auto 130%; }
+.stage { background-size: auto 136%; } .sign { top: 66%; } .explorer { bottom: 24%; }
+/* Tahap 1 follows the supplied 1920 by 1080 storyboard. */
+.level-one { background: url("l1/e latar l1.png") center / 100% 100% no-repeat; container-type: inline-size; }
+.level-one:not(.level-one-playing) { background-image: url("Homepage/background.png"); background-size: auto 136%; }
+.level-controls { position: absolute; top: 12px; left: 12px; right: 12px; display: flex; justify-content: space-between; z-index: 6; pointer-events: none; }
+.level-controls button { pointer-events: auto; font-size: clamp(12px, 1.5vw, 18px); min-height: 44px; padding: 6px 12px; }
+.level-panel { position: absolute; width: min(78%, 900px, calc(80dvh * 1.91)); left: 50%; top: 52%; transform: translate(-50%, -50%); }
+.level-panel .graphic-button { position: absolute; }
+.level-panel .graphic-button .asset { width: 100%; }
+.level-start { left: 40%; top: 72%; width: 20%; }
+.level-replay { left: 12.3%; top: 64%; width: 35.7%; }
+.level-next { left: 52.2%; top: 64%; width: 35.3%; }
+.target-stars { position: absolute; left: 29%; top: 4.6%; width: 42%; height: 25%; display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(2, 1fr); gap: 1.5%; }
+.target-stars .asset { width: 100%; height: 100%; }
+.target-audio { position: absolute; left: 20%; top: 13%; width: 6%; min-width: 44px; }
+.target-audio .asset { width: 100%; }
+.round-label { position: absolute; right: 3%; top: 10%; padding: 6px 12px; border-radius: 12px; margin: 0; background: #ffedc7; font-weight: bold; font-size: clamp(12px, 1.6vw, 20px); }
+.animal-field { position: absolute; inset: 37% 8% 10%; display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(2, 1fr); gap: 7% 4%; }
+.animal-choice { position: relative; background: transparent; padding: 0; min-height: 44px; min-width: 44px; animation: roam var(--pace) ease-in-out var(--delay) infinite alternate; }
+.animal-body { width: 78%; height: 100%; }
+.animal-body img { object-fit: fill; }
+.animal-number { position: absolute; width: 38%; left: 0; top: 45%; }
+.animal-choice.found { animation-play-state: paused; filter: drop-shadow(0 0 5px #fff29a); }
+.animal-choice.found::after { content: '✓'; position: absolute; right: 0; top: 0; color: #234c12; background: #ffedb2; border-radius: 50%; padding: 0 6px; font-size: clamp(18px, 2vw, 28px); }
+@keyframes roam { from { transform: translateX(-8%); } to { transform: translateX(8%); } }
+.round-feedback { position: absolute; width: 65%; left: 17.5%; top: 38%; z-index: 5; pointer-events: none; }
+@media (max-width: 600px) and (orientation: portrait) {
+ .level-panel { width: 96%; }
+ .target-stars { top: 12%; left: 27%; width: 46%; height: 19%; }
+ .level-one-playing { background-size: 100% 100%; }
+ .target-audio { left: 8%; top: 20%; }
+ .round-label { top: 7%; }
+ .animal-field { inset: 36% 5% 8%; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(4, 1fr); gap: 5% 6%; }
+ .animal-body { width: 74%; max-width: 85px; }
+ .animal-number { width: 37%; max-width: 43px; }
+}
+.animal-body { height: auto; position: absolute; left: 14%; bottom: 0; } .sign.completed::after { content: "\2713"; }
+@media (max-width: 600px) and (orientation: portrait) { .level-controls { top: auto; bottom: 10px; } .target-stars { top: 4.6%; left: 29%; width: 42%; height: 25%; } .round-label { top: 32%; right: 3%; font-size: 12px; } .target-audio { top: 15%; left: 8%; } }
+@media (max-width: 600px) and (orientation: portrait) { .target-stars { top: 10%; height: auto; grid-template-rows: repeat(2, auto); gap: 6px 3px; } .target-stars .asset { height: auto; } }
+
+.animal-body { width: auto; max-width: none; height: min(100%, 11cqw); left: 50%; transform: translateX(-50%); }
+@media (max-width: 600px) and (orientation: portrait) {
+ .animal-body { width: auto; max-width: none; height: min(100%, 21cqw); }
+ .level-controls { top: 12px; bottom: auto; }
+}
+.level-controls .level-home { width: clamp(88px, 12vw, 140px); min-height: 44px; padding: 0; } .level-home .asset { width: 100%; }
+

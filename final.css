@@ -1,0 +1,49 @@
+.final-screen { background: url('final/background.png') center / 100% 100% no-repeat; container-type: inline-size; user-select: none; }
+.final-home { position: absolute; left: 12px; top: 12px; width: clamp(88px, 12vw, 140px); min-height: 44px; z-index: 8; }
+.final-home .asset { width: 100%; }
+.final-panel { position: absolute; width: min(78%, 900px, calc(80dvh * 1.91)); left: 50%; top: 52%; transform: translate(-50%, -50%); }
+.final-board { width: 100%; display: block; }
+.final-panel .graphic-button { position: absolute; }
+.final-panel .graphic-button .asset { width: 100%; }
+.final-start { left: 40%; top: 73.5%; width: 20%; }
+.final-replay { left: 12.3%; top: 64%; width: 35.7%; }
+.final-next { left: 52.2%; top: 64%; width: 35.3%; }
+.final-guest { position: absolute; width: 64%; left: 28%; top: 0; }
+.final-guest > img { display: block; width: 100%; pointer-events: none; }
+.final-request { position: absolute; left: 73%; top: 27%; width: 7%; }
+.final-request::after { content: ''; position: absolute; inset: -10px; }
+.final-request .asset { width: 100%; }
+.final-basket { position: absolute; left: 63%; top: 56%; width: 23%; }
+.final-basket > .asset { width: 100%; }
+.final-contents { position: absolute; inset: 20% 25%; display: grid; grid-template-columns: repeat(3,1fr); align-content: center; pointer-events: none; }
+.final-contents .asset { width: 100%; }
+.final-foods { position: absolute; inset: 62% 43% 12% 10%; display: grid; grid-template-rows: repeat(3,1fr); gap: 2%; }
+.final-food-row { display: grid; grid-template-columns: repeat(10,minmax(0,1fr)); align-items: center; }
+.final-food { width: 100%; touch-action: none; cursor: grab; }
+.final-food[hidden] { display: inline-flex; visibility: hidden; }
+.final-food .asset { width: 100%; max-width: 5cqw; }
+.final-food[aria-pressed='true'] { filter: drop-shadow(0 0 4px #fff); }
+.final-food.final-dragging { position: relative; z-index: 10; cursor: grabbing; transition: none; }
+.final-drop-ready { outline: 4px dashed #47782a; border-radius: 50%; }
+.final-confirm { position: absolute; right: 8%; bottom: 12%; width: 7%; min-width: 44px; }
+.final-confirm .asset { width: 100%; }
+.final-feedback { position: absolute; z-index: 12; width: 65%; left: 17.5%; top: 38%; pointer-events: none; }
+.achievement-shade { position: absolute; inset: 0; z-index: 15; display: grid; place-content: center; justify-items: center; background: #143b2970; }
+.achievement-board { position: relative; width: min(90vw, 900px, calc(73dvh * 1.91)); container-type: inline-size; }
+.achievement-image { width: 100%; display: block; }
+.achievement-profile { position: absolute; left: 9%; top: 34%; width: 30%; }
+.achievement-profile > .asset { display: block; width: 100%; }
+.achievement-profile .profile-name { font-size: clamp(8px, 2cqw, 24px); padding-left: 2%; }
+.achievement-return { width: clamp(150px, 30vw, 320px); margin-top: 12px; }
+.achievement-return .asset, .achievement-button .asset { width: 100%; }
+.achievement-button { width: clamp(130px, 23vw, 260px); }
+@media (max-width: 600px) and (orientation: portrait) {
+ .final-panel { width: 96%; }
+ .final-guest { width: 90%; left: 7%; top: 1%; }
+ .final-basket { width: 28%; left: 61%; top: 45%; }
+ .final-foods { inset: 55% 43% 8% 10%; }
+ .final-food-row { grid-template-columns: repeat(5,minmax(0,1fr)); grid-template-rows: repeat(2,minmax(0,1fr)); min-height: 0; }
+ .final-food { height: 100%; min-height: 0; }
+ .final-food .asset { height: 100%; width: auto; max-width: 100%; }
+ .final-confirm { right: 15%; bottom: 19%; width: 14%; }
+}

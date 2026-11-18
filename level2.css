@@ -1,0 +1,40 @@
+.l2-screen { background: url('l2/background.png') center / 100% 100% no-repeat; container-type: inline-size; }
+.l2-home { position: absolute; left: 12px; top: 12px; width: clamp(88px, 12vw, 140px); min-height: 44px; z-index: 8; }
+.l2-home .asset { width: 100%; }
+.l2-panel { position: absolute; width: min(78%, 900px, calc(80dvh * 1.91)); left: 50%; top: 52%; transform: translate(-50%, -50%); }
+.l2-board { width: 100%; display: block; }
+.l2-panel .graphic-button { position: absolute; }
+.l2-panel .graphic-button .asset { width: 100%; }
+.l2-panel .l2-start { left: 40%; top: 73.5%; width: 20%; }
+.l2-start .asset { width: 100%; }
+.l2-start:hover { transform: scale(1.05); }
+.l2-replay { left: 12.3%; top: 64%; width: 35.7%; }
+.l2-next { left: 52.2%; top: 64%; width: 35.3%; }
+.l2-heading { position: absolute; width: 44%; left: 28%; top: 4.4%; }
+.l2-heading > .asset { width: 100%; display: block; }
+.l2-prompt-number { position: absolute; left: 45%; top: 29%; width: 13%; min-width: 36px; }
+.l2-prompt-number .asset { width: 100%; }
+.l2-field { position: absolute; inset: 35% 8% 9%; display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(var(--rows), 1fr); gap: 6% 4%; }
+.l2-animal { position: relative; min-width: 44px; min-height: 44px; background: transparent; padding: 0; animation: l2-roam var(--pace) ease-in-out var(--delay) infinite alternate; }
+.l2-body { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); height: min(90%, 11cqw); width: auto; }
+.l2-count-number { position: absolute; left: 0; top: 44%; width: 38%; }
+.l2-counted { animation-play-state: paused; }
+@keyframes l2-roam { from { transform: translateX(-7%); } to { transform: translateX(7%); } }
+.l2-question { position: absolute; z-index: 5; width: min(78%, 850px, calc(75dvh * 1.87)); left: 50%; top: 52%; transform: translate(-50%, -50%); }
+.l2-question-audio { position: absolute; left: 83%; top: 30%; width: 7%; min-width: 36px; }
+.l2-question-audio .asset { width: 100%; }
+.l2-answers { position: absolute; left: 15%; right: 15%; top: 57%; display: flex; justify-content: space-between; }
+.l2-answers .graphic-button { width: 18%; min-width: 44px; }
+.l2-answers .asset { width: 100%; }
+.l2-feedback { position: absolute; z-index: 7; width: 65%; left: 17.5%; top: 38%; pointer-events: none; }
+@media (max-width: 600px) and (orientation: portrait) {
+ .l2-panel, .l2-question { width: 96%; }
+ .l2-heading { left: 18%; width: 64%; top: 13%; }
+ .l2-field { inset: 32% 6% 8%; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(5, 1fr); gap: 4% 6%; }
+ .l2-body { height: min(90%, 18cqw); }
+ .l2-question-audio { min-width: 30px; }
+}
+@media (prefers-reduced-motion: reduce) { .l2-animal { animation: none; } }
+
+/* The supplied question panel already includes the speaker artwork. */
+.l2-question-audio .asset { opacity: 0; }

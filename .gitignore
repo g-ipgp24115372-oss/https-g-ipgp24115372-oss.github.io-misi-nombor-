@@ -1,0 +1,15 @@
+# Generated output and local-only files (the original assets remain untouched).
+/dist/
+/tmp/
+/Rujukan/
+/*.docx
+*.zip
+/.openai/
+/.codex/
+/.agents/
+/node_modules/
+.env
+.env.*
+*.log
+Thumbs.db
+.DS_Store
